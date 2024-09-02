@@ -1,0 +1,14 @@
+[package]
+name = "avlon-db"
+version = "0.1.1"
+edition = "2021"
+authors = ["2468412817@qq.com"]
+license = "MIT"
+keywords = ["sled", "db", "database", "struct db", "avlon_db"]
+description = "A simple embedded struct database wrapper based on Sled."
+documentation = "https://docs.rs/avlon_db"
+
+[dependencies]
+sled = "0.34"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
