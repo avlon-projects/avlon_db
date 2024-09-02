@@ -7,6 +7,7 @@ license = "MIT"
 keywords = ["sled", "db", "database", "struct db", "avlon_db"]
 description = "A simple embedded struct database wrapper based on Sled."
 documentation = "https://docs.rs/avlon_db"
+repository = "https://github.com/avlon-projects/avlon_db.git"
 
 [dependencies]
 sled = "0.34"
