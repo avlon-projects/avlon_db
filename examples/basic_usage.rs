@@ -10,7 +10,7 @@ pub struct Account {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Define the database name
+    // Define the database name and will create a same named directory in the current directory.
     let db_name = String::from("test_db");
 
     // Create an instance of Account
