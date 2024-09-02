@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use sled::{self, Db};
 
 /// A struct representing a wrapper around a Sled database.

@@ -1,5 +1,5 @@
 use avlon_db::AvlonDB;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 /// A struct representing a user account.
 #[derive(Serialize, Deserialize, Debug)]
@@ -54,7 +54,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Attempt to load the account again after removal
     if let Some(loaded_account) = db.load::<Account>("johndoe")? {
-        println!("Account loaded from database after removal: {:?}", loaded_account);
+        println!(
+            "Account loaded from database after removal: {:?}",
+            loaded_account
+        );
     } else {
         println!("Account successfully removed from the database.");
     }
