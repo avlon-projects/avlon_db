@@ -62,6 +62,31 @@ impl AvlonDB {
         }
     }
 
+    /// Loads range data from the database associated with the given start key and end key.
+    ///
+    /// # Arguments
+    ///
+    /// * `start_key` - The start key of range data.
+    /// * `end_key` - The end key of range data.
+    ///
+    /// # Returns
+    ///
+    /// A `Result` containing a `Vec` of the values, or an `Err` if an issue occurs.
+    pub fn load_range<T>(&self, start_key: &str, end_key: &str) -> sled::Result<Vec<T>>
+    where
+        T: for<'de> Deserialize<'de>,
+    {
+        let mut results = Vec::new();
+
+        for result in self.client.range(start_key.as_bytes()..end_key.as_bytes()) {
+            let (_, value) = result?;
+            let item: T = serde_json::from_slice(&value).unwrap();
+            results.push(item);
+        }
+
+        Ok(results)
+    }
+
     /// Removes a value from the database associated with the given key.
     ///
     /// # Arguments
